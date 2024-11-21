@@ -1,5 +1,6 @@
 package com.backendchallenge.Client;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,10 +14,11 @@ public class ClientController {
     }
 
     @GetMapping("{id}")
-    public Client getClientById(
+    public ResponseEntity<Client> getClientById(
             @RequestHeader(name = "Document-Type") DocumentType documentType,
             @PathVariable("id") int id
     ) {
-        return clientService.getClientById(documentType, id);
+        Client clientById = clientService.getClientById(documentType, id);
+        return ResponseEntity.ok().body(clientById);
     }
 }

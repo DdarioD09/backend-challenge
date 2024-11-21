@@ -1,5 +1,6 @@
 package com.backendchallenge.Client;
 
+import com.backendchallenge.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,12 +13,11 @@ public class ClientService {
     }
 
     public Client getClientById(DocumentType documentType, int id) {
-
         return clientRepository.getClients().stream()
                 .filter(client -> client.documentType().equals(documentType) && client.id().equals(id))
                 .findFirst()
                 .orElseThrow(() ->
-                        new RuntimeException("Cliente con tipo de identificación " + documentType +
-                                "y número " + id + " no ha sido encontrado"));
+                        new ResourceNotFoundException("El cliente identificado con " + documentType +
+                                " y número " + id + " no ha sido encontrado"));
     }
 }
