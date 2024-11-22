@@ -1,14 +1,14 @@
 package com.backendchallenge.Client;
 
 public record Client(
-        DocumentType documentType,
-        Integer id,
+        DocumentType identificationType,
+        String identificationNumber,
         String firstName,
         String middleName,
-        String firstLastname,
-        String secondLastname,
+        String lastName,
+        String secondLastName,
         String phoneNumber,
-        String direction,
+        String address,
         String city
 ) {
 }
