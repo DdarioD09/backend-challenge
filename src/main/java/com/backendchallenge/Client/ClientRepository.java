@@ -13,7 +13,7 @@ public class ClientRepository {
     {
         clients.add(new Client(
                 DocumentType.CEDULA,
-                23445322,
+                "23445322",
                 "Andres",
                 "Camilo",
                 "Delgado",

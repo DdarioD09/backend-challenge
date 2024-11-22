@@ -12,9 +12,9 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public Client getClientById(DocumentType documentType, int id) {
+    public Client getClientById(DocumentType documentType, String id) {
         return clientRepository.getClients().stream()
-                .filter(client -> client.documentType().equals(documentType) && client.id().equals(id))
+                .filter(client -> client.identificationType().equals(documentType) && client.identificationNumber().equals(id))
                 .findFirst()
                 .orElseThrow(() ->
                         new ResourceNotFoundException("El cliente identificado con " + documentType +
