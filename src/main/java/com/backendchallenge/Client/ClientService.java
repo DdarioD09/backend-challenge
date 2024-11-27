@@ -17,7 +17,7 @@ public class ClientService {
                 .filter(client -> client.identificationType().equals(documentType) && client.identificationNumber().equals(id))
                 .findFirst()
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("El cliente identificado con " + documentType +
-                                " y número " + id + " no ha sido encontrado"));
+                        new ResourceNotFoundException("La información ingresada no corresponde a ningún usuario registrado," +
+                                "por favor revise los datos ingresados e intente nuevamente"));
     }
 }
